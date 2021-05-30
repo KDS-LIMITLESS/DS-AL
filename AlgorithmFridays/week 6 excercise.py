@@ -3,15 +3,24 @@ words = {1: "", 2: "abc", 3: "def", 4: "ghi", 5: "jkl", 6: "mno",
 
 
 def compute_combinations(number: int):
+	storageList = []
 	counter = 0
+	
 	for nums in  str(number):
+		if len(str(number)) == 1:
+			m = words[int(nums)]
+			storageList.append(m)
+			return storageList
+
 		if counter == 0:
 			v = words[int(nums)]
 			counter += 1
 			continue
+
 		m = words[int(nums)]
 		for l in v:
 			for i in m:
-				print([l+i])
+				storageList.append(l+i)
+	return storageList
 		
-compute_combinations(23)
+print(compute_combinations(234))
