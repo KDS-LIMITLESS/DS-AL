@@ -4,23 +4,24 @@ words = {1: "", 2: "abc", 3: "def", 4: "ghi", 5: "jkl", 6: "mno",
 
 def compute_combinations(number: int):
 	storageList = []
-	counter = 0
+	first_input_string_counter = 0
 	
-	for nums in  str(number):
+	for num in  str(number):
 		if len(str(number)) == 1:
-			m = words[int(nums)]
-			storageList.append(m)
+			_letters = words[int(num)]
+			storageList.append(_letters)
 			return storageList
 
-		if counter == 0:
-			v = words[int(nums)]
-			counter += 1
+		if first_input_string_counter == 0:
+			first_input_digit = words[int(num)]
+			first_input_string_counter += 1
 			continue
 
-		m = words[int(nums)]
-		for l in v:
-			for i in m:
-				storageList.append(l+i)
+		other_input_digits = words[int(num)]
+		for alphabet in first_input_digit:
+			for letter in other_input_digits:
+				storageList.append(alphabet + letter)
 	return storageList
-		
-print(compute_combinations(234))
+
+
+print(compute_combinations(23))
